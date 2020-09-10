@@ -21,4 +21,5 @@ int main() {
   }
 
   print_array(arr, N);
+  free(arr);
 }

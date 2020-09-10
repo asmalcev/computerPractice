@@ -21,4 +21,5 @@ int main() {
     }
   }
   printf("Array is permutation\n");
+  free(arr);
 }
