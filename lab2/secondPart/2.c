@@ -1,10 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+char * read_str(int length) {
+  char * str = (char *) malloc(length);
+  scanf("%s", str);
+  return str;
+}
+
+void print_str(char * str) {
+  printf("%s\n", str);
+}
+
 int main() {
   int n, length;
-  char * str = (char *) malloc(100);
-  scanf("%s", str);
+  char * str = read_str(100);
   scanf("%d", &n);
   length = sprintf(str, "%s", str);
   char tmp;
@@ -15,6 +24,6 @@ int main() {
       str[length - n + i] = tmp;
     }
   }
-  printf("%s\n", str);
+  print_str(str);
   free(str);
 }

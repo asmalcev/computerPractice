@@ -1,19 +1,22 @@
 #include <stdio.h>
+#include "iostring.h"
+
+#define N 100
 
 int main() {
-  char a;
-  while (a = getchar()) {
+  char * str = read_str(N);
+  for (int i = 0; i < N; i++) {
     if (
-      (a >= '0' && a <= '9')
-      || (a >= 'a' && a <= 'f')
-      || (a >= 'A' && a <= 'F')
+      (str[i] >= '0' && str[i] <= '9')
+      || (str[i] >= 'a' && str[i] <= 'f')
+      || (str[i] >= 'A' && str[i] <= 'F')
     ) {
       continue;
     } else {
-      if (a == '\n') break;
-      printf("It isn't hexdecimal\n");
+      if (str[i] == '\0') break;
+      print_str("It isn't hexdecimal");
       return 0;
     }
   }
-  printf("It's hexdecimal\n");
+  print_str("It's hexdecimal");
 }
