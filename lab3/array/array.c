@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 
 int * create_array(int length) {
   int * arr = (int *) malloc(length * sizeof(int));
@@ -9,11 +10,13 @@ int * create_array(int length) {
 }
 
 int * fill_array(int * arr, int length) {
+  srand(time(0));
   for (int i = 0; i < length; i++) {
     arr[i] = rand() % 100 - 50;
   }
   return arr;
 }
+
 void print_array(int * arr, int length) {
   for (int i = 0; i < length; i++) {
     printf("%d ", arr[i]);
