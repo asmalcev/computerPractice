@@ -10,6 +10,10 @@ IOSTRING_SRC = lab2/thirdPart
 
 3_SRC = lab3
 
+OSRC = $(1.1_SRC)/*.o $(1.2_SRC)/*.o $(2.1_SRC)/*.o $(2.2_SRC)/*.o $(2.3_SRC)/*.o $(3_SRC)/*.o
+
+.PHONY: all clean
+
 lab1: task1.1 task1.2 task1.3
 
 lab1_libarray: $(LIB1ARRAY_SRC)/array.c $(LIB1ARRAY_SRC)/array.h
@@ -64,3 +68,6 @@ task3: $(3_SRC)/main.c lab3_libarray lab3_libmatrix
 	gcc -o $(3_SRC)/main $(3_SRC)/main.o -ldl
 
 all: lab1 lab2 lab3
+
+clean:
+	rm -f $(OSRC)
